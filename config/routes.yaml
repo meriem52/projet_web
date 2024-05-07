@@ -1,3 +1,26 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+admin_user_index:
+    path: /admin/client
+    controller: App\Controller\Admin\ClientController::index
+    methods: ['GET']
+admin_user_new:
+    path: /admin/client/new
+    controller: 'App\Controller\Admin\ClientController::new'
+    methods: ['GET', 'POST']
+
+admin_user_show:
+    path: /admin/client/{id}
+    controller: 'App\Controller\Admin\ClientController::show'
+    methods: ['GET']
+
+admin_user_edit:
+    path: /admin/client/{id}/edit
+    controller: 'App\Controller\Admin\ClientController::edit'
+    methods: ['GET', 'POST']
+
+admin_user_delete:
+    path: /admin/client/{id}
+    controller: 'App\Controller\Admin\ClientController::delete'
+    methods: ['DELETE']
