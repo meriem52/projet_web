@@ -55,3 +55,29 @@ admin_reservation_delete:
     path: /admin/reservation/{id}
     controller: App\Controller\Admin\ReservationController::delete
     methods: DELETE
+
+#room routes
+admin_room_index:
+    path: /admin/room/
+    controller: App\Controller\Admin\RoomController::index
+    methods: GET
+
+admin_room_new:
+    path: /admin/room/new/{id}
+    controller: App\Controller\Admin\RoomController::new
+    methods: ['GET', 'POST']
+
+admin_room_show:
+    path: /admin/room/{id}
+    controller: App\Controller\Admin\RoomController::show
+    methods: GET
+
+admin_room_edit:
+    path: /admin/room/{id}/edit/{hid}
+    controller: App\Controller\Admin\RoomController::edit
+    methods: ['GET', 'POST']
+
+admin_room_delete:
+    path: /admin/room/{id}/{hid}
+    controller: App\Controller\Admin\RoomController::delete
+    methods: DELETE
