@@ -2,18 +2,42 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <meta name="description" content="Sona Template">
+        <meta name="keywords" content="Sona, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sona | Template</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/font-awesome.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/elegant-icons.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/flaticon.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/owl.carousel.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/nice-select.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/jquery-ui.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/magnific-popup.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/slicknav.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assetsHome/css/style.css') }}" type="text/css">
+
+
+
+        <script src="{{ asset('assetsHome/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/jquery.nice-select.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/jquery.slicknav.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assetsHome/js/main.js') }}"></script>
+
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
