@@ -46,30 +46,30 @@
                         <tbody>
                         <tr>
                             <th>Id</th>
-                            <td>{{ client.id }}</td>
+                            <td>{{ Clients.id }}</td>
                         </tr>
                         <tr>
                             <th>Name</th>
-                            <td>{{ client.nom }}</td>
+                            <td>{{ Clients.nom }}</td>
                         </tr>
                         <tr>
                             <th>Surname</th>
-                            <td>{{ client.prenom }}</td>
+                            <td>{{ Clients.prenom }}</td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td>{{ client.email }}</td>
+                            <td>{{ Clients.email }}</td>
                         </tr>
                         <tr>
                             <th>Telephone</th>
-                            <td>{{ client.telephone }}</td>
+                            <td>{{ Clients.telephone }}</td>
                         </tr>
                         </tbody>
                     </table>
 
                     <a href="{{ path('admin_user_index') }}">back to list</a>
 
-                    <a href="{{ path('admin_user_edit', {'id': client.id}) }}">edit</a>
+                    <a href="{{ path('admin_user_edit', {'id': Clients.id}) }}">edit</a>
 
                     <div class="col-sm-3">
                         {{ include('admin/client/_delete_form.html.twig') }}

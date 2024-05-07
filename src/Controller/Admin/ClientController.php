@@ -25,10 +25,10 @@ class ClientController extends AbstractController
     /**
      * @Route("/", name="admin_user_index", methods={"GET"})
      */
-    public function index(ClientsRepository $userRepository): Response
+    public function index(ClientsRepository $clientsRepository): Response
     {
         return $this->render('admin/client/index.html.twig', [
-            'clients' => $userRepository->findAll(),
+            'clients' => $clientsRepository->findAll(),
         ]);
     }
 
@@ -37,19 +37,19 @@ class ClientController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $client = new Clients();
-        $form = $this->createForm(ClientType::class, $client);
+        $clients = new Clients();
+        $form = $this->createForm(ClientType::class, $clients);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->persist($client);
+            $this->entityManager->persist($clients);
             $this->entityManager->flush();
 
             return $this->redirectToRoute('admin_user_index');
         }
 
         return $this->render('admin/client/new.html.twig', [
-            'client' => $client,
+            'clients' => $clients,
             'form' => $form->createView(),
         ]);
     }
@@ -57,19 +57,19 @@ class ClientController extends AbstractController
     /**
      * @Route("/{id}", name="admin_user_show", methods={"GET"})
      */
-    public function show(Clients $client): Response
+    public function show(Clients $clients): Response
     {
         return $this->render('admin/client/show.html.twig', [
-            'client' => $client,
+            'clients' => $clients,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="admin_user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Clients $client): Response
+    public function edit(Request $request, Clients $clients): Response
     {
-        $form = $this->createForm(ClientType::class, $client);
+        $form = $this->createForm(ClientType::class, $clients);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -79,7 +79,7 @@ class ClientController extends AbstractController
         }
 
         return $this->render('admin/client/edit.html.twig', [
-            'client' => $client,
+            'clients' => $clients,
             'form' => $form->createView(),
         ]);
     }
@@ -87,10 +87,10 @@ class ClientController extends AbstractController
     /**
      * @Route("/{id}", name="admin_user_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Clients $client): Response
+    public function delete(Request $request, Clients $clients): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$client->getId(), $request->request->get('_token'))) {
-            $this->entityManager->remove($client);
+        if ($this->isCsrfTokenValid('delete'.$clients->getId(), $request->request->get('_token'))) {
+            $this->entityManager->remove($clients);
             $this->entityManager->flush();
         }
 
