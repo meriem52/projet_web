@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+# config/routes.yaml
+services:
+    path: /services
+    controller: App\Controller\ServicesController::index
