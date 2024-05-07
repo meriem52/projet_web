@@ -1,0 +1,100 @@
+{% extends 'admin/index.html.twig' %}
+
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Contact Form Messages List</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="../index.html.twig">Home</a></li>
+                            <li class="breadcrumb-item active">Messages</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Title</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+                            <th>Client Id</th>
+                            <th>Date d'entrée</th>
+                            <th>Date de depart</th>
+                            <th>Nombre de nuits</th>
+                            <th>Prix Total</th>
+                            <th>Statut</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for reservation in reservations %}
+                            <tr>
+
+                                <td><a href="{{ path('admin_user_show', {'id': reservation.client_id}) }}">
+                                    </a>
+                                </td>
+                                <td>{{ reservation.date_arrivee ? reservation.date_arrivee|date('d-m-y') : '' }}</td>
+                                <td>{{ reservation.date_depart ? reservation.date_sortie|date('d-m-y') : '' }}</td>
+                                <td>{{ reservation.nombre_nuit}}</td>
+                                <td>{{ reservation.prix_total }}</td>
+                                <td>{{ reservation.statut }}</td>
+
+                                <td>
+                                    <a  class="btn btn-block btn-default" href="{{ path('admin_reservation_show', {'id': reservation.id}) }}">Show</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-block btn-info" href="{{ path('admin_reservation_edit', {'id': reservation.id}) }}">Edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="19">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    Footer
+                </div>
+                <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}

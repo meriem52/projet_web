@@ -1,6 +1,10 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+# config/routes.yaml
+services:
+    path: /services
+    controller: App\Controller\ServicesController::index
 #Routes for user
 admin_user_index:
     path: /admin/client

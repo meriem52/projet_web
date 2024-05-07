@@ -45,4 +45,50 @@ class ReservationsRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    // *** lEFT JOIN WITH SQL ******************
+    public function getUserReservation($id): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+            SELECT r.* FROM Reservations r
+            WHERE r.client_id = :client_id
+            ORDER BY r.id DESC ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['client_id' => $id]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
+
+    // *** lEFT JOIN WITH SQL ******************
+    public function getReservation($id): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+            SELECT r.* FROM Reservations r
+            JOIN Clients usr ON usr.id = r.client_id
+            WHERE r.id = :id
+         ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
+
+    // *** lEFT JOIN WITH SQL ******************
+    public function getReservations($status): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+            SELECT r.* FROM Reservations r
+            JOIN Clients usr ON usr.id = r.client_id
+            WHERE r.statut =:statut
+         ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['status' => $statut]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
 }
