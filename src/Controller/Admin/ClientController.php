@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Controller\admin;
 
 use App\Entity\Clients;
 use App\Form\ClientType;

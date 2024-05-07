@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\admin;
 
 use App\Entity\Admins;
 use App\Form\AdminType;
