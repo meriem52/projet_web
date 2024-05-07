@@ -1,7 +1,53 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
-# config/routes.yaml
-services:
-    path: /services
-    controller: App\Controller\ServicesController::index
+#Routes for user
+admin_user_index:
+    path: /admin/client
+    controller: App\Controller\Admin\ClientController::index
+    methods: ['GET']
+admin_user_new:
+    path: /admin/client/new
+    controller: 'App\Controller\Admin\ClientController::new'
+    methods: ['GET', 'POST']
+
+admin_user_show:
+    path: /admin/client/{id}
+    controller: 'App\Controller\Admin\ClientController::show'
+    methods: ['GET']
+
+admin_user_edit:
+    path: /admin/client/{id}/edit
+    controller: 'App\Controller\Admin\ClientController::edit'
+    methods: ['GET', 'POST']
+
+admin_user_delete:
+    path: /admin/client/{id}
+    controller: 'App\Controller\Admin\ClientController::delete'
+    methods: ['DELETE']
+
+# Routes for ReservationController
+admin_reservation_index:
+    path: /admin/reservation/{slug}
+    controller: App\Controller\Admin\ReservationController::index
+    methods: GET
+
+admin_reservation_new:
+    path: /admin/reservation/new
+    controller: App\Controller\Admin\ReservationController::new
+    methods: ['GET', 'POST']
+
+admin_reservation_show:
+    path: /admin/reservation/show/{id}
+    controller: App\Controller\Admin\ReservationController::show
+    methods: GET
+
+admin_reservation_edit:
+    path: /admin/reservation/{id}/edit
+    controller: App\Controller\Admin\ReservationController::edit
+    methods: ['GET', 'POST']
+
+admin_reservation_delete:
+    path: /admin/reservation/{id}
+    controller: App\Controller\Admin\ReservationController::delete
+    methods: DELETE
